@@ -9,7 +9,6 @@ class Solution:
         count = 0
         subarray = ""
         while i < j < len(s):
-            # print(i, j, subarray)
             if i == 0 and j == 1:
                 subarray = s[i]+s[j]
                 count += 2
@@ -23,8 +22,6 @@ class Solution:
                     output.add(subarray)
                 subarray = subarray[1:]
                 count -= 1
-                # print(frequency)
-                # print(output)
                 i += 1
             j += 1
         return list(output)
