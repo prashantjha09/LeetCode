@@ -18,9 +18,5 @@ class Solution:
                         answer_list.append(digit)
                 else:
                     answer_list.append(digit)
-
-            print(nums[i], digit, count)
             i += 1
         return answer_list
-
-        
