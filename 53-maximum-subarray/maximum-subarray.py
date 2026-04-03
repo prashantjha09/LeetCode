@@ -1,14 +1,23 @@
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        current_sum = nums[0]
-        tmp_max_sum = nums[0]
-        for i in range(1, len(nums)):
+class Solution(object):
+    def maxSubArray(self, nums):
+        prefix_sum_list= [0]
+        prefix_sum = 0
+        for i in nums:
+            prefix_sum=prefix_sum + i
+            prefix_sum_list.append(prefix_sum)
 
-            if current_sum + nums[i] < nums[i]:
-                current_sum = nums[i]
-            else:
-                current_sum = current_sum + nums[i]
-            tmp_max_sum =max(current_sum,tmp_max_sum)
-        return tmp_max_sum
-        
-        
+
+        #Minimum element till the index
+        min_num = float('inf')
+        min_list = []
+        for i in prefix_sum_list:
+            min_num=min(i, min_num)
+            min_list.append(min_num)
+
+
+        max_subarray = - float('inf')
+        for i in range(1, len(prefix_sum_list)):
+            max_subarray =  max(max_subarray, prefix_sum_list[i]-min_list[i-1])
+
+        return max_subarray
+
