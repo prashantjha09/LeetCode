@@ -12,11 +12,11 @@ class Solution:
             counter[element_count[i]].append(i)
 
         output = []
-        for i in reversed(list(counter.keys())):
-            occurrence_len = len(counter[i])
-            if occurrence_len > 0:
-                for val in counter[i]:
-                    output.append(val)
-                    k -= 1
-                    if k == 0:
-                        return output
+        cnt = 0
+        for i in reversed(counter):
+            for j in counter[i] :
+                output.append(j)
+                cnt+=1
+                if k-cnt==0:
+                    return output
+
