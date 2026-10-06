@@ -1,3 +1,4 @@
+from collections import deque
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
         s_count = deque()
@@ -15,4 +16,8 @@ class Solution:
                         s_count.append(')')
                 if  i=='(':
                     s_count.append('(')
+
+            print(s_count)
         return len(s_count)
+
+        
