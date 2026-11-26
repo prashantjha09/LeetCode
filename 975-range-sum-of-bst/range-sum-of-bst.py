@@ -10,16 +10,16 @@ from collections import deque
 class Solution:
     def rangeSumBST(self, root: TreeNode | None, low: int, high: int) -> int:
         custom_queue.append(root)
-        sum_node = []
+        sum_node = 0
         while custom_queue:
             root = custom_queue.pop()
             if high >= root.val >= low:
-                sum_node.append(root.val)
+                sum_node = sum_node + root.val
             if root.left:
                 custom_queue.append(root.left)
             if root.right:
                 custom_queue.append(root.right)
-        return sum(sum_node)        
+        return sum_node 
 
         
 
