@@ -15,9 +15,9 @@ class Solution:
             root = custom_queue.pop()
             if high >= root.val >= low:
                 sum_node = sum_node + root.val
-            if root.left:
+            if root.left and root.val > low:
                 custom_queue.append(root.left)
-            if root.right:
+            if root.right and root.val < high:
                 custom_queue.append(root.right)
         return sum_node 
 
